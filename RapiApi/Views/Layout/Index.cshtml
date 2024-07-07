@@ -1,0 +1,368 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Rooms</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Major - 5* Hotel template project">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="~/major-master/styles/bootstrap-4.1.2/bootstrap.min.css">
+	<link href="~/major-master/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="~/major-master/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="~/major-master/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+	<link rel="stylesheet" type="text/css" href="~/major-master/plugins/OwlCarousel2-2.2.1/animate.css">
+	<link href="~/major-master/plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="~/major-master/styles/rooms.css">
+	<link rel="stylesheet" type="text/css" href="~/major-master/styles/rooms_responsive.css">
+</head>
+<body>
+
+	<div class="super_container">
+
+		<!-- Header -->
+		<header class="header">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="header_content d-flex flex-row align-items-center justify-content-start">
+							<div class="logo">
+								<a href="#">
+									<div>Major</div>
+									<div>5 * Hotel</div>
+								</a>
+							</div>
+							<nav class="main_nav">
+								<ul class="d-flex flex-row align-items-center justify-content-start">
+									<li><a href="index.html">Anasayfa</a></li>
+									<li><a href="about.html">Hakkımızda</a></li>
+									<li class="active"><a href="rooms.html">Odalarımız</a></li>
+									<li><a href="blog.html">Yenilikler</a></li>
+									<li><a href="contact.html">İletişim</a></li>
+								</ul>
+							</nav>
+							<div class="header_extra d-flex flex-row align-items-center justify-content-start ml-auto">
+								<div class="phone d-flex flex-row align-items-center justify-content-start"><i class="fa fa-phone" aria-hidden="true"></i><span>652-345 3222 11</span></div>
+								<div class="book_button trans_200"><a href="#">Rezervasyon Yap</a></div>
+							</div>
+							<div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<!-- Menu -->
+
+		<div class="menu">
+			<div class="background_image" style="background-image:url(images/menu.jpg)"></div>
+			<div class="menu_content d-flex flex-column align-items-center justify-content-center">
+				<ul class="menu_nav_list text-center">
+					<li><a href="index.html">Anasayfa</a></li>
+					<li><a href="about.html">Hakkımızda</a></li>
+					<li><a href="rooms.html">Odalarımız</a></li>
+					<li><a href="news.html">Yenililiker</a></li>
+					<li><a href="contact.html">İletişim</a></li>
+				</ul>
+				<div class="menu_review"><a href="#">Rezervasyon Yap</a></div>
+			</div>
+		</div>
+
+		<!-- Home -->
+
+		<div class="home">
+			<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="https://www.tollbrothers.com/blog/wp-content/uploads/2023/10/Tamiami-Farmhouse_Pool-Daylight-3.jpeg" data-speed="0.8"></div>
+			<div class="home_container">
+				<div class="container">
+					<div class="row">
+						<div class="col">
+							<div class="home_content text-center">
+								<div class="home_title"><h1>Odalarımız</h1></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Search Box -->
+
+		<div class="search_box">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="search_box_container d-flex flex-row align-items-center justify-content-start">
+							<div class="search_form_container">
+								<form asp-action="Index" asp-controller="Booking" method="post" id="search_form" class="search_form">
+									<div class="search_dropdown d-flex flex-row align-items-center justify-content-start">
+										<span>Şehir</span>
+										<i class="fa fa-chevron ml-2" aria-hidden="true"></i>
+										<input type="text" class="form-control col-12" name="city" placeholder="Şehir ismi giriniz..." />
+									</div>
+									<br />
+									<div class="d-flex flex-lg-row flex-column align-items-center justify-content-start">
+										<ul class="search_form_list d-flex flex-row align-items-center justify-content-start flex-wrap">
+											<li class="search_dropdown d-flex flex-row align-items-center justify-content-start date-input">
+												<span>Giriş</span>
+												<i class="fa fa-chevron ml-2" aria-hidden="true"></i>
+												<input type="date" name="CheckinDate" class="form-control" />
+											</li>
+											<li class="search_dropdown d-flex flex-row align-items-center justify-content-start date-input">
+												<span>Çıkış</span>
+												<i class="fa fa-chevron ml-2" aria-hidden="true"></i>
+												<input type="date" name="CheckoutDate" class="form-control" />
+											</li>
+											<li class="search_dropdown d-flex flex-row align-items-center justify-content-start small-input">
+												<span>Misafir Sayısı</span>
+												<i class="fa fa-chevron ml-auto" aria-hidden="true"></i>
+												<select name="AdultsNumber" class="form-control">
+													@for (int i = 0; i <= 29; i++)
+													{
+														<option value="@i">@i</option>
+													}
+												</select>
+											</li>
+											<li class="search_dropdown d-flex flex-row align-items-center justify-content-start small-input">
+												<span>Çocuk Sayısı</span>
+												<i class="fa fa-chevron ml-auto" aria-hidden="true"></i>
+												<select name="ChildrenNumber" class="form-control">
+													@for (int i = 0; i <= 29; i++)
+													{
+														<option value="@i">@i</option>
+													}
+												</select>
+											</li>
+											<li class="search_dropdown d-flex flex-row align-items-center justify-content-start small-input">
+												<span>Oda Sayısı</span>
+												<i class="fa fa-chevron ml-auto" aria-hidden="true"></i>
+												<select name="RoomNumber" class="form-control">
+													@for (int i = 0; i <= 29; i++)
+													{
+														<option value="@i">@i</option>
+													}
+												</select>
+											</li>
+										</ul>
+										<button class="search_button">Otel Ara</button>
+									</div>
+
+									
+
+									<style>
+										.search_form_list .search_dropdown {
+											margin-right: 10px; /* Alanlar arasında boşluk bırakır */
+										}
+
+										.search_form_list .date-input {
+											flex: 2; /* Tarih alanları daha geniş */
+										}
+
+										.search_form_list .small-input {
+											flex: 1; /* Diğer alanlar daha dar */
+										}
+
+										.search_form_list .form-control {
+											width: 100%;
+										}
+									</style>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+@RenderBody()
+
+		<div class="room d-flex flex-lg-row flex-column align-items-start justify-content-start">
+			<div class="room_content">
+				<div class="container">
+					<div class="row">
+						<div class="col">
+							<div class="room_title">
+								<div class="section_title_container_2">
+									<div class="section_title"><h1>Deluxe Room</h1></div>
+								</div>
+								<div class="room_price">From <span>$190</span>/ night</div>
+							</div>
+							<div class="room_list">
+								<ul>
+									<li class="d-flex flex-row align-items-start justify-content-start">
+										<div><div>Bed:</div></div>
+										<div>Double bed</div>
+									</li>
+									<li class="d-flex flex-row align-items-start justify-content-start">
+										<div><div>Capacity:</div></div>
+										<div>2 adults</div>
+									</li>
+									<li class="d-flex flex-row align-items-start justify-content-start">
+										<div><div>Room size:</div></div>
+										<div>55m²</div>
+									</li>
+									<li class="d-flex flex-row align-items-start justify-content-start">
+										<div><div>View:</div></div>
+										<div>Sea view</div>
+									</li>
+									<li class="d-flex flex-row align-items-start justify-content-start">
+										<div><div>Facilities:</div></div>
+										<div>Iron, TV, Hair dryer</div>
+									</li>
+								</ul>
+							</div>
+							<div class="button room_button trans_200"><a href="#">book now</a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="room_image">
+				<div class="background_image" style="background-image:url(images/room_1.jpg)"></div>
+			</div>
+		</div>
+
+		<!-- Newsletter -->
+
+		<div class="newsletter">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="section_title_container_2">
+							<div class="section_title"><h1>Our Newsletter</h1></div>
+						</div>
+					</div>
+				</div>
+				<div class="row newsletter_row">
+
+					<!-- Newsletter Content -->
+					<div class="col-lg-6">
+						<div class="newsletter_content">
+							<div class="newsletter_text">
+								<p>In vitae nisi aliquam, scelerisque leo a, volutpat sem. Vivamus rutrum dui fermentum eros hendrerit, id lobortis leo volutpat. Maecenas sollicitudin est in libero pretium interdum.</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Newsletter Form -->
+					<div class="col-lg-6 newsletter_col">
+						<form action="#" class="newsletter_form" id="newsletter_form">
+							<input type="email" class="newsletter_input" placeholder="Your email" required="required">
+							<button class="newsletter_button">subscribe</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Contact -->
+
+		<div class="contact">
+			<div class="container">
+				<div class="row">
+
+					<!-- Contact Map -->
+					<div class="col-xl-6">
+						<div class="contact_map_container">
+
+							<!-- Contact Map -->
+							<div class="contact_map">
+
+								<!-- Google Map -->
+								<div class="map">
+									<div id="google_map" class="google_map">
+										<div class="map_container">
+											<div id="map"></div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+							<!-- Contact Info Box -->
+							<div class="contact_info_box d-flex flex-column align-items-center justify-content-center">
+								<ul class="contact_info_list">
+									<li class="d-flex flex-row align-items-start justify-content-start">
+										<div><div class="contact_info_icon d-flex flex-column align-items-center justify-content-center"><img src="images/placeholder.png" alt=""></div></div>
+										<div class="contact_info_text">1481 Creekside Lane Avila Beach, CA 931</div>
+									</li>
+									<li class="d-flex flex-row align-items-center justify-content-start">
+										<div><div class="contact_info_icon d-flex flex-column align-items-center justify-content-center"><img src="images/smartphone.png" alt=""></div></div>
+										<div class="contact_info_text">+53 345 7953 32453</div>
+									</li>
+									<li class="d-flex flex-row align-items-center justify-content-start">
+										<div><div class="contact_info_icon d-flex flex-column align-items-center justify-content-center"><img src="images/mail.png" alt=""></div></div>
+										<div class="contact_info_text">yourmail@gmail.com</div>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+					</div>
+
+					<!-- Contact Form -->
+					<div class="col-xl-6 contact_col">
+						<div class="contact_form_container">
+							<div class="section_title_container_2">
+								<div class="section_title"><h1>Contact Info</h1></div>
+								<div class="section_text">Vivamus rutrum dui fermentum eros hendrerit, id lobortis leo volutpat. Maecenas sollicitudin est in libero pretium interdum.</div>
+							</div>
+							<form action="#" class="contact_form" id="contact_form">
+								<div class="row contact_row">
+									<div class="col-md-6"><input type="text" class="contact_input" placeholder="Name" required="required"></div>
+									<div class="col-md-6"><input type="email" class="contact_input" placeholder="E-mail" required="required"></div>
+								</div>
+								<div><textarea class="contact_input contact_textarea" placeholder="Message" required="required"></textarea></div>
+								<button class="contact_button">send message</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<footer class="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="footer_content d-flex flex-md-row flex-column align-items-center align-items-start justify-content-start">
+							<div class="copyright">
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+								Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							</div>
+							<div class="footer_logo">
+								<div class="logo">
+									<a href="#">
+										<div>Major</div>
+										<div>5 * Hotel</div>
+									</a>
+								</div>
+							</div>
+							<div class="button footer_button ml-md-auto"><a href="#">book now</a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+   
+	<script src="~/major-master/js/jquery-3.2.1.min.js"></script>
+	<script src="~/major-master/styles/bootstrap-4.1.2/popper.js"></script>
+	<script src="~/major-master/styles/bootstrap-4.1.2/bootstrap.min.js"></script>
+	<script src="~/major-master/plugins/greensock/TweenMax.min.js"></script>
+	<script src="~/major-master/plugins/greensock/TimelineMax.min.js"></script>
+	<script src="~/major-master/plugins/scrollmagic/ScrollMagic.min.js"></script>
+	<script src="~/major-master/plugins/greensock/animation.gsap.min.js"></script>
+	<script src="~/major-master/plugins/greensock/ScrollToPlugin.min.js"></script>
+	<script src="~/major-master/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+	<script src="~/major-master/plugins/easing/easing.js"></script>
+	<script src="~/major-master/plugins/progressbar/progressbar.min.js"></script>
+	<script src="~/major-master/plugins/colorbox/jquery.colorbox-min.js"></script>
+	<script src="~/major-master/plugins/parallax-js-master/parallax.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
+	<script src="~/major-master/js/rooms.js"></script>
+</body>
+</html>

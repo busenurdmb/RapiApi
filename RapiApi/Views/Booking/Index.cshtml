@@ -1,0 +1,54 @@
+﻿@model List<SearchHotelsViewModel.Result>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+
+
+
+<!-- Rooms -->
+
+<div class="rooms">
+	<div class="container">
+		<div class="row rooms_row">
+
+			@foreach (var item in Model)
+			{
+				<div class="col-lg-4">
+					<div class="rooms_item">
+						<div class="rooms_image"><img src="@item.max_photo_url" alt="@item.main_photo_id" width="400px" height="400px"></div>
+						<div class="rooms_title_container text-center">
+							<div class="rooms_title"><h4>@item.hotel_name_trans</h4></div>
+							<div class="rooms_price">From <span>@item.composite_price_breakdown.all_inclusive_amount.amount_rounded</span> /night</div>
+						</div>
+						<div class="rooms_list">
+							<ul>
+								<li class="d-flex flex-row align-items-start justify-content-start">
+									<div><div>Şehir:</div></div>
+									<div>@item.city</div>
+								</li>
+
+								<li class="d-flex flex-row align-items-start justify-content-start">
+									<div><div>Açıklama:</div></div>
+									<div>@Html.Raw(item.unit_configuration_label)</div>
+								</li>
+								<li class="d-flex flex-row align-items-start justify-content-start">
+									<div><div>Hizmet:</div></div>
+									<div>@item.ribbon_text</div>
+								</li>
+							</ul>
+						</div>
+						<div class="button rooms_button ml-auto mr-auto"><a href="@item.url">Rezervasyon Yap</a></div>
+					</div>
+				</div>
+			}
+			
+
+		</div>
+	</div>
+</div>
+
+<!-- Room -->
+
