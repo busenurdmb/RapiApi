@@ -1,0 +1,27 @@
+﻿@model List<ImdbSeriosViewModel>
+@{
+    Layout = null;
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container">
+    <br /><br />
+    <table class="table table-hover">
+<tr>
+            <th>#</th>
+            <th>Dizi Adı</th>
+            <th>Puanı</th>
+            <th>Imdb Linki</th>
+</tr>
+@foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.rank</td>
+                <td>@item.title</td>
+                <td>@item.rating</td>
+                <td><a href="@item.imdb_link" class="btn btn-primary">Imdb Linki</a></td>
+            </tr>
+        }
+    </table>
+</div>
